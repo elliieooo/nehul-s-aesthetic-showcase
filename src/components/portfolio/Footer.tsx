@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Magnetic } from "./interactive/Magnetic";
-import { Sticker } from "./interactive/Sticker";
+
 
 const socials = [
   { label: "LinkedIn", handle: "/in/nehulthakur", href: "https://linkedin.com/in/nehulthakur", emoji: "in" },
