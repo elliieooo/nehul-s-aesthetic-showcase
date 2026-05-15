@@ -8,21 +8,12 @@ import { Reveal } from "./interactive/Reveal";
 import { HoverImageText } from "./interactive/HoverImageText";
 
 const skills = [
-  { name: "Python", emoji: "🐍" },
-  { name: "R", emoji: "📊" },
-  { name: "Statistics", emoji: "∑" },
-  { name: "Data Science", emoji: "✦" },
-  { name: "Machine Learning", emoji: "◐" },
-  { name: "Steganography", emoji: "🔍" },
-  { name: "Cryptography", emoji: "✱" },
-  { name: "CTF / Recon", emoji: "⚑" },
-  { name: "Blender", emoji: "◈" },
-  { name: "Graphic Design", emoji: "✿" },
-  { name: "UI / UX", emoji: "❀" },
-  { name: "Frontend", emoji: "◇" },
+  "Python", "R", "Statistics", "Machine Learning",
+  "Steganography", "Cryptography", "CTF / Recon",
+  "Blender", "UI / UX", "Frontend",
 ];
 
-const interests = ["Skateboarding 🛹", "Hiking 🌿", "Anime ⛩", "Manga 📖", "Music ♪"];
+const interests = ["Skateboarding", "Hiking", "Anime", "Manga", "Music"];
 
 export function About() {
   return (
