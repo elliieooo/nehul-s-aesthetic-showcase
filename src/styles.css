@@ -50,14 +50,14 @@
 :root {
   --radius: 1rem;
 
-  /* Soft editorial palette — cream, blush, clay, sage */
-  --cream:     oklch(0.972 0.012 80);
-  --sand:      oklch(0.945 0.018 75);
-  --ink:       oklch(0.26 0.025 35);
-  --ink-soft:  oklch(0.48 0.025 40);
-  --blush:     oklch(0.84 0.055 20);   /* dusty pink */
-  --clay:      oklch(0.62 0.11 35);    /* terracotta */
-  --sage:      oklch(0.74 0.035 140);  /* soft sage */
+  /* Ellie palette — parchment, moss, ember, ash. warm post-apocalyptic editorial */
+  --cream:     oklch(0.955 0.022 85);   /* parchment */
+  --sand:      oklch(0.915 0.028 80);   /* aged paper */
+  --ink:       oklch(0.22 0.03 150);    /* deep forest charcoal */
+  --ink-soft:  oklch(0.42 0.04 145);    /* moss shadow */
+  --blush:     oklch(0.78 0.08 35);     /* dusty rose / firefly glow */
+  --clay:      oklch(0.52 0.16 28);     /* ember red — Ellie blood-red accent */
+  --sage:      oklch(0.50 0.07 150);    /* deep moss green */
 
   --background: var(--cream);
   --foreground: var(--ink);
@@ -95,8 +95,9 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse 90% 60% at 50% -10%, color-mix(in oklab, var(--blush) 28%, transparent), transparent 70%),
-      radial-gradient(ellipse 70% 50% at 100% 100%, color-mix(in oklab, var(--sage) 18%, transparent), transparent 70%);
+      radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in oklab, var(--sage) 22%, transparent), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, color-mix(in oklab, var(--clay) 14%, transparent), transparent 70%),
+      radial-gradient(ellipse 50% 35% at 0% 60%, color-mix(in oklab, var(--blush) 12%, transparent), transparent 70%);
   }
   ::selection {
     background: color-mix(in oklab, var(--clay) 22%, transparent);
@@ -159,3 +160,36 @@
   50% { transform: translateY(-8px) rotate(0.4deg); }
 }
 .animate-float { animation: float-slow 8s ease-in-out infinite; }
+
+@keyframes glow {
+  0%, 100% { opacity: 0.4; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+.animate-glow { animation: glow 2.4s ease-in-out infinite; }
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+.animate-wiggle { animation: wiggle 4s ease-in-out infinite; }
+
+@keyframes drift {
+  0% { transform: translate(0,0) rotate(0); }
+  33% { transform: translate(20px,-30px) rotate(8deg); }
+  66% { transform: translate(-15px,-10px) rotate(-6deg); }
+  100% { transform: translate(0,0) rotate(0); }
+}
+.animate-drift { animation: drift 12s ease-in-out infinite; }
+
+.tape {
+  position: absolute;
+  background: color-mix(in oklab, var(--blush) 70%, transparent);
+  height: 22px; width: 70px;
+  box-shadow: 0 2px 6px color-mix(in oklab, var(--ink) 18%, transparent);
+}
+
+.scanline::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, color-mix(in oklab, var(--ink) 3%, transparent) 3px, color-mix(in oklab, var(--ink) 3%, transparent) 4px);
+  mix-blend-mode: multiply; opacity: 0.35;
+}
