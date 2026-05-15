@@ -5,6 +5,7 @@ import { About } from "@/components/portfolio/About";
 import { Projects } from "@/components/portfolio/Projects";
 import { Path } from "@/components/portfolio/Path";
 import { Footer } from "@/components/portfolio/Footer";
+import { Xaenithra } from "@/components/portfolio/Xaenithra";
 import { SoftCursor } from "@/components/portfolio/interactive/SoftCursor";
 import { ScrollProgress } from "@/components/portfolio/interactive/ScrollProgress";
 
@@ -38,6 +39,7 @@ function Index() {
       <Hero />
       <About />
       <Projects />
+      <Xaenithra />
       <Path />
       <Footer />
     </main>
