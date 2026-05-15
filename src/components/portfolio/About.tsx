@@ -112,27 +112,26 @@ export function About() {
           </Reveal>
 
           <div className="pt-6">
-            <p className="label-mono mb-4">A short list of tools — hover them ✦</p>
+            <p className="label-mono mb-4">A short list of tools</p>
             <div className="flex flex-wrap gap-2">
               {skills.map((s, i) => (
                 <motion.span
-                  key={s.name}
+                  key={s}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.04 }}
-                  whileHover={{ y: -4, rotate: i % 2 ? 3 : -3, scale: 1.05 }}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm cursor-default ${
+                  whileHover={{ y: -3 }}
+                  className={`px-4 py-2 rounded-full border text-sm cursor-default ${
                     i % 4 === 0
                       ? "bg-blush/40 border-blush text-ink"
                       : i % 4 === 2
                       ? "bg-sage/30 border-sage text-ink"
                       : "bg-sand/50 border-border text-ink-soft"
                   }`}
-                  data-cursor={s.name.toLowerCase()}
+                  data-cursor={s.toLowerCase()}
                 >
-                  <span className="text-base">{s.emoji}</span>
-                  {s.name}
+                  {s}
                 </motion.span>
               ))}
             </div>
