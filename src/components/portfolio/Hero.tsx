@@ -124,18 +124,9 @@ export function Hero() {
           </Sticker>
 
           {/* moth polaroid */}
-          <Sticker rotate={-15} delay={0.4} className="absolute top-12 -left-12 bg-cream p-2 pb-5 shadow-[var(--shadow-soft)] w-24 hidden md:block">
+          <Sticker rotate={-12} delay={0.4} className="absolute top-8 -left-10 bg-cream p-2 pb-5 shadow-[var(--shadow-soft)] w-24 hidden md:block">
             <img src={mothImg} alt="moth tattoo" className="w-full aspect-square object-cover" />
             <p className="label-mono text-center mt-1.5 text-[8px]">moth · v.01</p>
-          </Sticker>
-
-          <Sticker rotate={8} delay={0.6} className="absolute bottom-24 -right-8 bg-sand border border-border px-3 py-1.5 rounded-full label-mono">
-            🛹 skater · she/they
-          </Sticker>
-
-          <Sticker rotate={-3} delay={0.8} className="absolute top-1/2 -right-12 bg-cream p-2 pb-5 shadow-[var(--shadow-card)] w-28 hidden lg:block">
-            <img src={comicImg} alt="comics + tape" className="w-full aspect-square object-cover" />
-            <p className="label-mono text-center mt-1.5 text-[8px]">savage starlight</p>
           </Sticker>
         </div>
       </motion.div>
