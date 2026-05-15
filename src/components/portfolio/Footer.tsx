@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Magnetic } from "./interactive/Magnetic";
-import { Sticker } from "./interactive/Sticker";
+
 
 const socials = [
   { label: "LinkedIn", handle: "/in/nehulthakur", href: "https://linkedin.com/in/nehulthakur", emoji: "in" },
@@ -20,13 +20,7 @@ export function Footer() {
       />
 
       <div className="relative max-w-[1400px] mx-auto">
-        <div className="text-center max-w-4xl mx-auto mb-24 relative">
-          <Sticker rotate={-12} className="absolute -top-2 left-4 lg:left-20 bg-sage/60 px-3 py-1 rounded-full label-mono">
-            ◦ inbox open ◦
-          </Sticker>
-          <Sticker rotate={10} delay={0.2} className="absolute top-8 right-4 lg:right-20 bg-blush/70 px-3 py-1 rounded-full label-mono">
-            ✿ replies in &lt;24h
-          </Sticker>
+        <div className="text-center max-w-4xl mx-auto mb-24">
 
           <p className="label-mono mb-8">Chapter 04 — Say Hello</p>
           <h2 className="font-display font-normal text-6xl md:text-8xl lg:text-[10rem] text-ink leading-[0.9]">
@@ -74,19 +68,6 @@ export function Footer() {
           ))}
         </div>
 
-        {/* tiny info strip */}
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 label-mono">
-          {[
-            { k: "tz", v: "IST · GMT+5:30" },
-            { k: "based", v: "Chandigarh, IN" },
-            { k: "cell", v: "Xaenithra · stegano" },
-            { k: "status", v: "open to collabs" },
-          ].map((s, i) => (
-            <div key={i} className="rounded-xl border border-border bg-cream/60 px-3 py-2">
-              <span className="text-clay">{s.k}</span> · {s.v}
-            </div>
-          ))}
-        </div>
 
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>

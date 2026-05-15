@@ -7,7 +7,7 @@ import recon from "@/assets/project-recon-soft.jpg";
 import { motion } from "framer-motion";
 import { TiltCard } from "./interactive/TiltCard";
 import { Reveal } from "./interactive/Reveal";
-import { Sticker } from "./interactive/Sticker";
+
 
 type Project = {
   no: string; tag: string; title: string; italic?: string; body: string;
@@ -50,11 +50,7 @@ export function Projects() {
   return (
     <section id="work" className="relative px-6 lg:px-16 py-32 lg:py-40 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
-        <div className="mb-20 grid lg:grid-cols-12 gap-8 items-end relative">
-          <Sticker rotate={-8} className="absolute -top-8 right-1/3 bg-blush/70 px-3 py-1 rounded-full label-mono z-10">
-            ✿ scrapbook mode
-          </Sticker>
-
+        <div className="mb-20 grid lg:grid-cols-12 gap-8 items-end">
           <div className="lg:col-span-8">
             <Reveal>
               <p className="label-mono mb-6">Chapter 02 — Selected Work</p>
@@ -66,8 +62,7 @@ export function Projects() {
           </div>
           <Reveal delay={0.2}>
             <p className="lg:col-span-4 text-ink-soft text-lg leading-relaxed lg:text-right">
-              A scrapbook of research notes, side studies, and things made for
-              the joy of making. <span className="italic-display text-clay">↓ tilt them.</span>
+              Research notes, side studies, and things made for the joy of making.
             </p>
           </Reveal>
         </div>

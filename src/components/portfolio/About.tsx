@@ -1,6 +1,6 @@
 import aboutImg from "@/assets/about-soft.jpg";
 import stegano from "@/assets/project-stegano-soft.jpg";
-import chat from "@/assets/project-chat-soft.jpg";
+
 import weather from "@/assets/project-weather-soft.jpg";
 import { motion } from "framer-motion";
 import { Sticker } from "./interactive/Sticker";
@@ -8,21 +8,12 @@ import { Reveal } from "./interactive/Reveal";
 import { HoverImageText } from "./interactive/HoverImageText";
 
 const skills = [
-  { name: "Python", emoji: "🐍" },
-  { name: "R", emoji: "📊" },
-  { name: "Statistics", emoji: "∑" },
-  { name: "Data Science", emoji: "✦" },
-  { name: "Machine Learning", emoji: "◐" },
-  { name: "Steganography", emoji: "🔍" },
-  { name: "Cryptography", emoji: "✱" },
-  { name: "CTF / Recon", emoji: "⚑" },
-  { name: "Blender", emoji: "◈" },
-  { name: "Graphic Design", emoji: "✿" },
-  { name: "UI / UX", emoji: "❀" },
-  { name: "Frontend", emoji: "◇" },
+  "Python", "R", "Statistics", "Machine Learning",
+  "Steganography", "Cryptography", "CTF / Recon",
+  "Blender", "UI / UX", "Frontend",
 ];
 
-const interests = ["Skateboarding 🛹", "Hiking 🌿", "Anime ⛩", "Manga 📖", "Music ♪"];
+const interests = ["Skateboarding", "Hiking", "Anime", "Manga", "Music"];
 
 export function About() {
   return (
@@ -48,17 +39,9 @@ export function About() {
               />
             </div>
 
-            {/* polaroid stickers */}
-            <Sticker rotate={-8} delay={0.2} className="absolute -top-6 -right-6 bg-cream p-2 pb-6 shadow-[var(--shadow-soft)] w-32">
+            <Sticker rotate={-4} delay={0.4} className="absolute -bottom-6 -right-6 bg-cream p-2 pb-5 shadow-[var(--shadow-soft)] w-28">
               <img src={stegano} alt="" className="w-full aspect-square object-cover" />
-              <p className="label-mono text-center mt-2 text-[8px]">stegano log</p>
-            </Sticker>
-            <Sticker rotate={6} delay={0.4} className="absolute -bottom-8 -left-6 bg-cream p-2 pb-6 shadow-[var(--shadow-soft)] w-28">
-              <img src={chat} alt="" className="w-full aspect-square object-cover" />
-              <p className="label-mono text-center mt-2 text-[8px]">design notes</p>
-            </Sticker>
-            <Sticker rotate={-4} delay={0.6} className="absolute top-1/2 -left-8 bg-blush/80 px-3 py-1 rounded-full label-mono">
-              ✿ ellie's desk
+              <p className="label-mono text-center mt-1.5 text-[8px]">stegano log</p>
             </Sticker>
 
             <p className="label-mono mt-6 text-center">
@@ -121,27 +104,26 @@ export function About() {
           </Reveal>
 
           <div className="pt-6">
-            <p className="label-mono mb-4">A short list of tools — hover them ✦</p>
+            <p className="label-mono mb-4">A short list of tools</p>
             <div className="flex flex-wrap gap-2">
               {skills.map((s, i) => (
                 <motion.span
-                  key={s.name}
+                  key={s}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.04 }}
-                  whileHover={{ y: -4, rotate: i % 2 ? 3 : -3, scale: 1.05 }}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm cursor-default ${
+                  whileHover={{ y: -3 }}
+                  className={`px-4 py-2 rounded-full border text-sm cursor-default ${
                     i % 4 === 0
                       ? "bg-blush/40 border-blush text-ink"
                       : i % 4 === 2
                       ? "bg-sage/30 border-sage text-ink"
                       : "bg-sand/50 border-border text-ink-soft"
                   }`}
-                  data-cursor={s.name.toLowerCase()}
+                  data-cursor={s.toLowerCase()}
                 >
-                  <span className="text-base">{s.emoji}</span>
-                  {s.name}
+                  {s}
                 </motion.span>
               ))}
             </div>
