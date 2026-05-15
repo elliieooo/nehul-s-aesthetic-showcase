@@ -1,139 +1,162 @@
-import stegano from "@/assets/project-stegano.jpg";
-import chat from "@/assets/project-chat.jpg";
-import weather from "@/assets/project-weather.jpg";
-import login from "@/assets/project-login.jpg";
-import space from "@/assets/project-space.jpg";
-import recon from "@/assets/project-recon.jpg";
+import stegano from "@/assets/project-stegano-soft.jpg";
+import chat from "@/assets/project-chat-soft.jpg";
+import weather from "@/assets/project-weather-soft.jpg";
+import login from "@/assets/project-login-soft.jpg";
+import space from "@/assets/project-space-soft.jpg";
+import recon from "@/assets/project-recon-soft.jpg";
+
+type Project = {
+  no: string;
+  tag: string;
+  title: string;
+  italic?: string;
+  body: string;
+  href: string;
+  img: string;
+  span: string;
+  ratio: string;
+  tone?: "blush" | "sage" | "sand";
+};
+
+const projects: Project[] = [
+  {
+    no: "01",
+    tag: "Cryptography · Research",
+    title: "Steganography",
+    italic: "Engine",
+    body: "Hiding entire conversations inside the texture of an ordinary photograph. Built for the Xaenithra ops stack.",
+    href: "#",
+    img: stegano,
+    span: "lg:col-span-8",
+    ratio: "aspect-[16/10]",
+    tone: "blush",
+  },
+  {
+    no: "02",
+    tag: "React · Vite",
+    title: "Edgy",
+    italic: "Chat UI",
+    body: "Production-grade chat interface — minimalist, real-time, soft on the eyes.",
+    href: "https://github.com/elliieooo/edgy-chat-ui",
+    img: chat,
+    span: "lg:col-span-4",
+    ratio: "aspect-[4/5]",
+    tone: "sand",
+  },
+  {
+    no: "03",
+    tag: "Python · Streamlit",
+    title: "Weather",
+    italic: "Forecast",
+    body: "Live OpenWeatherMap dashboard bridging Python data work with a calm interface.",
+    href: "https://github.com/elliieooo/Weather-Forecast",
+    img: weather,
+    span: "lg:col-span-6",
+    ratio: "aspect-[5/4]",
+    tone: "sage",
+  },
+  {
+    no: "04",
+    tag: "Python · R",
+    title: "Predictive",
+    italic: "ML Engine",
+    body: "Automated pipeline for inference, feature engineering, and model selection.",
+    href: "#",
+    img: space,
+    span: "lg:col-span-6",
+    ratio: "aspect-[5/4]",
+    tone: "blush",
+  },
+  {
+    no: "05",
+    tag: "Glassmorphism · UI",
+    title: "Modern",
+    italic: "Login",
+    body: "A study in soft glass, warm bokeh, and the geometry of welcome screens.",
+    href: "https://github.com/elliieooo/modern-login-ui",
+    img: login,
+    span: "lg:col-span-4",
+    ratio: "aspect-[4/5]",
+    tone: "sand",
+  },
+  {
+    no: "06",
+    tag: "Recon · Vulnerability",
+    title: "CTF",
+    italic: "Reconnaissance",
+    body: "Quiet system mapping and exploit research — the slow, patient kind.",
+    href: "#",
+    img: recon,
+    span: "lg:col-span-8",
+    ratio: "aspect-[16/10]",
+    tone: "sage",
+  },
+];
+
+const toneBg: Record<NonNullable<Project["tone"]>, string> = {
+  blush: "bg-blush/30",
+  sage: "bg-sage/25",
+  sand: "bg-sand",
+};
 
 export function Projects() {
   return (
-    <section id="work" className="relative px-6 lg:px-24 py-32 bg-surface/20 border-t border-border">
+    <section id="work" className="relative px-6 lg:px-16 py-32 lg:py-40">
       <div className="max-w-[1400px] mx-auto">
-        <div className="mb-20 flex flex-wrap justify-between items-end gap-4">
-          <div>
-            <p className="font-mono text-ember text-xs uppercase tracking-[0.3em] mb-2">
-              // Selected Research
-            </p>
-            <h3 className="font-display text-4xl md:text-6xl uppercase tracking-tight text-ink">
-              Reconnaissance<br />Logs / 2025
-            </h3>
+        <div className="mb-20 grid lg:grid-cols-12 gap-8 items-end">
+          <div className="lg:col-span-8">
+            <p className="label-mono mb-6">Chapter 02 — Selected Work</p>
+            <h2 className="font-display font-normal text-5xl md:text-7xl text-ink leading-[0.95]">
+              Six small <span className="italic-display text-clay">obsessions</span>,{" "}
+              quietly built.
+            </h2>
           </div>
-          <span className="font-mono text-xs text-ember">06 // ENTRIES</span>
+          <p className="lg:col-span-4 text-ink-soft text-lg leading-relaxed lg:text-right">
+            A scrapbook of research notes, side studies, and things made for
+            the joy of making.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Big Project — Stegano */}
-          <a
-            href="#"
-            className="lg:col-span-8 group relative overflow-hidden rounded-2xl border border-border bg-background block"
-          >
-            <img
-              src={stegano}
-              alt="Steganography Engine"
-              loading="lazy"
-              width={1280}
-              height={800}
-              className="w-full aspect-[16/10] object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-            <div className="absolute inset-0 p-8 lg:p-12 flex flex-col justify-end">
-              <span className="font-mono text-ember text-xs mb-3 uppercase tracking-[0.25em]">
-                [0x1] · Cryptography
-              </span>
-              <h4 className="text-3xl lg:text-5xl font-display uppercase text-ink tracking-tight mb-3">
-                Steganography Engine
-              </h4>
-              <p className="text-ink-muted max-w-md leading-relaxed">
-                High-fidelity data concealment within complex visual assets using
-                proprietary algorithms. Built for the Xaenithra ops stack.
-              </p>
-            </div>
-          </a>
-
-          {/* Side: Chat UI */}
-          <a href="https://github.com/elliieooo/edgy-chat-ui" className="lg:col-span-4 glass-card p-6 rounded-2xl flex flex-col justify-between group hover:border-ember/30 transition-colors">
-            <div>
-              <span className="font-mono text-ember/70 text-xs">[0x2] · React / Vite</span>
-              <h4 className="text-2xl font-display uppercase text-ink mt-3 group-hover:text-ember transition-colors">Edgy Chat UI</h4>
-              <p className="text-ink-muted mt-2 text-sm leading-relaxed">
-                Production-grade React interface with Vite-optimized pipeline and
-                minimalist design patterns.
-              </p>
-            </div>
-            <img src={chat} alt="Edgy Chat UI" loading="lazy" width={800} height={800}
-              className="mt-6 w-full aspect-square object-cover rounded-lg opacity-80 group-hover:opacity-100 transition-opacity" />
-          </a>
-
-          {/* Weather */}
-          <a href="https://github.com/elliieooo/Weather-Forecast" className="lg:col-span-4 glass-card p-6 rounded-2xl flex flex-col group hover:border-ember/30 transition-colors">
-            <img src={weather} alt="Weather Dashboard" loading="lazy" width={800} height={600}
-              className="w-full aspect-[4/3] object-cover rounded-lg mb-6 opacity-80 group-hover:opacity-100 transition-opacity" />
-            <span className="font-mono text-ember/70 text-xs">[0x3] · Python / Streamlit</span>
-            <h4 className="text-2xl font-display uppercase text-ink mt-3 group-hover:text-ember transition-colors">Weather Dashboard</h4>
-            <p className="text-ink-muted mt-2 text-sm leading-relaxed">
-              Bridging Python data science with Streamlit interfaces and live
-              OpenWeatherMap API integration.
-            </p>
-          </a>
-
-          {/* ML Engine — accent border */}
-          <a href="#" className="lg:col-span-8 rounded-2xl p-px bg-gradient-to-br from-ember/60 via-ember/10 to-transparent group">
-            <div className="bg-background h-full w-full rounded-[15px] p-8 lg:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-              <div>
-                <span className="font-mono text-ember text-xs">[0x4] · Python / R</span>
-                <h4 className="text-3xl lg:text-4xl font-display uppercase text-ink mt-2 tracking-tight">Predictive ML Engine</h4>
-                <p className="text-ink-muted mt-3 max-w-lg leading-relaxed">
-                  Automated data science pipeline for statistical inference, feature
-                  engineering, and model selection.
-                </p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          {projects.map((p) => (
+            <a
+              key={p.no}
+              href={p.href}
+              className={`${p.span} group block`}
+            >
+              <div
+                className={`relative overflow-hidden rounded-[1.75rem] ${toneBg[p.tone ?? "sand"]} p-3 shadow-[var(--shadow-card)] transition-all duration-500 group-hover:-translate-y-1 group-hover:shadow-[var(--shadow-soft)]`}
+              >
+                <div className={`relative ${p.ratio} rounded-[1.25rem] overflow-hidden`}>
+                  <img
+                    src={p.img}
+                    alt={`${p.title} ${p.italic ?? ""}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="px-3 pt-5 pb-3 flex items-start justify-between gap-6">
+                  <div className="min-w-0">
+                    <p className="label-mono mb-2">
+                      <span className="text-clay">{p.no}</span> · {p.tag}
+                    </p>
+                    <h3 className="font-display text-3xl md:text-4xl text-ink leading-[1] tracking-tight">
+                      {p.title}{" "}
+                      {p.italic && (
+                        <span className="italic-display text-clay">{p.italic}</span>
+                      )}
+                    </h3>
+                    <p className="mt-3 text-ink-soft leading-relaxed text-sm md:text-base max-w-md">
+                      {p.body}
+                    </p>
+                  </div>
+                  <span className="shrink-0 size-12 rounded-full bg-cream border border-border grid place-items-center text-ink group-hover:bg-ink group-hover:text-cream group-hover:border-ink transition-colors">
+                    →
+                  </span>
+                </div>
               </div>
-              <div className="hidden md:grid place-items-center size-28 rounded-full border border-ember/30 text-ember text-xs font-mono group-hover:border-ember group-hover:bg-ember/5 transition-all">
-                VIEW_GIT →
-              </div>
-            </div>
-          </a>
-
-          {/* Login UI */}
-          <a href="https://github.com/elliieooo/modern-login-ui" className="lg:col-span-4 glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-ember/30 transition-colors">
-            <img src={login} alt="Modern Login UI" loading="lazy" width={800} height={600}
-              className="w-full aspect-[4/3] object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
-            <div className="p-6">
-              <span className="font-mono text-ember/70 text-xs">[0x5] · Glassmorphism</span>
-              <h4 className="text-2xl font-display uppercase text-ink mt-3 group-hover:text-ember transition-colors">Modern Login UI</h4>
-              <p className="text-ink-muted mt-2 text-sm leading-relaxed">
-                Visual research into glassmorphism, backdrop filters, and high-end
-                authentication flow aesthetics.
-              </p>
-            </div>
-          </a>
-
-          {/* Recon */}
-          <a href="#" className="lg:col-span-4 glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-ember/30 transition-colors">
-            <img src={recon} alt="CTF Reconnaissance" loading="lazy" width={800} height={600}
-              className="w-full aspect-[4/3] object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
-            <div className="p-6">
-              <span className="font-mono text-ember/70 text-xs">[0x6] · Recon / Vuln</span>
-              <h4 className="text-2xl font-display uppercase text-ink mt-3 group-hover:text-ember transition-colors">CTF Reconnaissance</h4>
-              <p className="text-ink-muted mt-2 text-sm leading-relaxed">
-                Active vulnerability research and system mapping toolset for red-team
-                operations.
-              </p>
-            </div>
-          </a>
-
-          {/* Space DS */}
-          <a href="https://github.com/elliieooo/data-science-portfolio" className="lg:col-span-4 glass-card rounded-2xl overflow-hidden flex flex-col group hover:border-ember/30 transition-colors">
-            <img src={space} alt="Data Science Portfolio" loading="lazy" width={800} height={600}
-              className="w-full aspect-[4/3] object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
-            <div className="p-6">
-              <span className="font-mono text-ember/70 text-xs">[0x7] · Legacy</span>
-              <h4 className="text-2xl font-display uppercase text-ink mt-3 group-hover:text-ember transition-colors">Modern Space DS</h4>
-              <p className="text-ink-muted mt-2 text-sm leading-relaxed">
-                Original responsive showcase for data science work — the ancestor of
-                this premium build.
-              </p>
-            </div>
-          </a>
+            </a>
+          ))}
         </div>
       </div>
     </section>
