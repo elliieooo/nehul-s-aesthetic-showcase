@@ -20,13 +20,7 @@ export function Footer() {
       />
 
       <div className="relative max-w-[1400px] mx-auto">
-        <div className="text-center max-w-4xl mx-auto mb-24 relative">
-          <Sticker rotate={-12} className="absolute -top-2 left-4 lg:left-20 bg-sage/60 px-3 py-1 rounded-full label-mono">
-            ◦ inbox open ◦
-          </Sticker>
-          <Sticker rotate={10} delay={0.2} className="absolute top-8 right-4 lg:right-20 bg-blush/70 px-3 py-1 rounded-full label-mono">
-            ✿ replies in &lt;24h
-          </Sticker>
+        <div className="text-center max-w-4xl mx-auto mb-24">
 
           <p className="label-mono mb-8">Chapter 04 — Say Hello</p>
           <h2 className="font-display font-normal text-6xl md:text-8xl lg:text-[10rem] text-ink leading-[0.9]">
