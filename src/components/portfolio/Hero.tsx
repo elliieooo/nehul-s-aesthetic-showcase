@@ -1,11 +1,11 @@
-import heroImg from "@/assets/hero-soft.jpg";
-import aboutImg from "@/assets/about-soft.jpg";
+import ellieImg from "@/assets/ellie-portrait.jpg";
+import mothImg from "@/assets/sticker-moth.jpg";
+import comicImg from "@/assets/sticker-comic.jpg";
 import stegano from "@/assets/project-stegano-soft.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Magnetic } from "./interactive/Magnetic";
 import { Sticker } from "./interactive/Sticker";
-import { LiveClock } from "./interactive/LiveBadge";
 import { SplitWords, Reveal } from "./interactive/Reveal";
 import { HoverImageText } from "./interactive/HoverImageText";
 
@@ -23,16 +23,11 @@ export function Hero() {
       className="relative min-h-screen flex flex-col justify-center px-6 lg:px-16 pt-32 pb-24 overflow-hidden grain"
     >
       {/* tiny corner labels */}
-      <div className="absolute top-24 left-6 lg:left-16 label-mono flex items-center gap-2 z-10">
-        <motion.span
-          animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="inline-block size-1.5 rounded-full bg-clay"
-        />
-        live · chandigarh · <LiveClock />
+      <div className="absolute top-24 left-6 lg:left-16 label-mono z-10">
+        ◦ portfolio · 04 · chandigarh, in
       </div>
       <div className="absolute top-24 right-6 lg:right-16 label-mono hidden md:block z-10">
-        N 30.7° / E 76.7° &nbsp;◦&nbsp; soft mode
+        “endure and survive” — j. miller
       </div>
 
       <motion.div style={{ y: yTxt, opacity }} className="max-w-[1400px] mx-auto w-full grid lg:grid-cols-12 gap-12 items-center">
@@ -40,7 +35,7 @@ export function Hero() {
         <div className="lg:col-span-7 relative z-10">
           <Reveal>
             <p className="label-mono mb-8">
-              <span className="text-clay">●</span> &nbsp;Portfolio · Édition 2025 · v.04
+              <span className="text-clay">●</span> &nbsp;a soft dossier · édition 2025
             </p>
           </Reveal>
 
@@ -55,15 +50,14 @@ export function Hero() {
           <Reveal delay={0.6}>
             <p className="mt-10 max-w-xl text-lg md:text-xl text-ink-soft leading-relaxed">
               I'm <span className="text-ink">Nehul</span> — most know me as{" "}
-              <HoverImageText src={heroImg} alt="ellie">
+              <HoverImageText src={ellieImg} alt="ellie">
                 <span className="italic-display text-clay underline decoration-clay/40 decoration-1 underline-offset-4">Ellie</span>
               </HoverImageText>
-              . A data science student, steganography researcher, and quiet
-              observer of{" "}
-              <HoverImageText src={stegano} alt="hidden things">
-                <span className="italic-display text-clay underline decoration-clay/40 decoration-1 underline-offset-4">things hiding</span>
-              </HoverImageText>{" "}
-              in plain sight.
+              . Data science student, steganography researcher with{" "}
+              <HoverImageText src={stegano} alt="xaenithra">
+                <span className="italic-display text-clay underline decoration-clay/40 decoration-1 underline-offset-4">Xaenithra</span>
+              </HoverImageText>
+              , and a quiet observer of things hiding in plain sight.
             </p>
           </Reveal>
 
@@ -111,41 +105,44 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* Right image */}
+        {/* Right image — Ellie portrait */}
         <div className="lg:col-span-5 relative">
-          <motion.div style={{ y: yImg }} className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[var(--shadow-soft)]" data-cursor="that's me">
+          <motion.div style={{ y: yImg }} className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[var(--shadow-soft)] bg-cream" data-cursor="codename: ellie">
             <img
-              src={heroImg}
-              alt="Soft cream silk and dried flowers"
-              width={1600}
-              height={1200}
+              src={ellieImg}
+              alt="Illustrated portrait of Ellie reading a notebook"
+              width={1024}
+              height={1280}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-cream/30 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-cream/40 via-transparent to-transparent pointer-events-none" />
           </motion.div>
 
           {/* sticker cluster */}
-          <Sticker rotate={-6} className="absolute -bottom-6 -left-6 bg-cream/90 backdrop-blur border border-border rounded-2xl px-5 py-4 shadow-[var(--shadow-card)]">
-            <p className="label-mono mb-1">Currently</p>
+          <Sticker rotate={-6} className="absolute -bottom-6 -left-6 bg-cream/95 backdrop-blur border border-border rounded-2xl px-5 py-4 shadow-[var(--shadow-card)]">
+            <p className="label-mono mb-1">Codename</p>
             <p className="font-display text-xl text-ink leading-tight">
-              Researching at <span className="italic-display text-clay">Xaenithra</span>
+              <span className="italic-display text-clay">Ellie</span> · stegano cell
             </p>
           </Sticker>
 
-          <Sticker rotate={12} delay={0.2} className="absolute -top-4 -right-4 size-24 rounded-full bg-blush/70 grid place-items-center font-display italic-display text-ink text-lg">
+          <Sticker rotate={12} delay={0.2} className="absolute -top-4 -right-4 size-24 rounded-full bg-blush/70 grid place-items-center font-display italic-display text-ink text-lg shadow-[var(--shadow-card)]">
             est. '25
           </Sticker>
 
-          <Sticker rotate={-15} delay={0.4} className="absolute top-12 -left-10 bg-sage/40 px-3 py-1.5 rounded-full label-mono">
-            ✦ now playing — radiohead
+          {/* moth polaroid */}
+          <Sticker rotate={-15} delay={0.4} className="absolute top-12 -left-12 bg-cream p-2 pb-5 shadow-[var(--shadow-soft)] w-24 hidden md:block">
+            <img src={mothImg} alt="moth tattoo" className="w-full aspect-square object-cover" />
+            <p className="label-mono text-center mt-1.5 text-[8px]">moth · v.01</p>
           </Sticker>
 
           <Sticker rotate={8} delay={0.6} className="absolute bottom-24 -right-8 bg-sand border border-border px-3 py-1.5 rounded-full label-mono">
             🛹 skater · she/they
           </Sticker>
 
-          <Sticker rotate={-3} delay={0.8} className="absolute top-1/2 -right-12 bg-cream border border-border rounded-xl p-2 shadow-[var(--shadow-card)] hidden lg:block">
-            <div className="size-14 rounded-md bg-blush/60 grid place-items-center text-2xl">🌸</div>
+          <Sticker rotate={-3} delay={0.8} className="absolute top-1/2 -right-12 bg-cream p-2 pb-5 shadow-[var(--shadow-card)] w-28 hidden lg:block">
+            <img src={comicImg} alt="comics + tape" className="w-full aspect-square object-cover" />
+            <p className="label-mono text-center mt-1.5 text-[8px]">savage starlight</p>
           </Sticker>
         </div>
       </motion.div>

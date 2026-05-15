@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 const links = [
   { l: "About", h: "#about" },
   { l: "Work", h: "#work" },
+  { l: "Xaenithra", h: "#xaenithra" },
   { l: "Journal", h: "#path" },
   { l: "Say Hello", h: "#contact" },
 ];
@@ -48,14 +49,6 @@ export function Nav() {
               <span className="absolute left-0 -bottom-1 h-px w-0 bg-clay transition-all group-hover:w-full" />
             </a>
           ))}
-          <span className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-sage/40 text-ink">
-            <motion.span
-              animate={{ scale: [1, 1.5, 1] }}
-              transition={{ duration: 1.6, repeat: Infinity }}
-              className="size-1.5 rounded-full bg-clay"
-            />
-            available
-          </span>
         </div>
       </div>
     </motion.nav>
