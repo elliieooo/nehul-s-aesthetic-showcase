@@ -1,7 +1,12 @@
+import { motion } from "framer-motion";
+import { Magnetic } from "./interactive/Magnetic";
+import { Sticker } from "./interactive/Sticker";
+import { LiveClock } from "./interactive/LiveBadge";
+
 const socials = [
-  { label: "LinkedIn", handle: "/in/nehulthakur", href: "https://linkedin.com/in/nehulthakur" },
-  { label: "GitHub", handle: "/elliieooo", href: "https://github.com/elliieooo" },
-  { label: "Instagram", handle: "@elliieooo", href: "https://instagram.com/elliieooo" },
+  { label: "LinkedIn", handle: "/in/nehulthakur", href: "https://linkedin.com/in/nehulthakur", emoji: "in" },
+  { label: "GitHub", handle: "/elliieooo", href: "https://github.com/elliieooo", emoji: "{ }" },
+  { label: "Instagram", handle: "@elliieooo", href: "https://instagram.com/elliieooo", emoji: "✿" },
 ];
 
 export function Footer() {
@@ -16,31 +21,49 @@ export function Footer() {
       />
 
       <div className="relative max-w-[1400px] mx-auto">
-        <div className="text-center max-w-4xl mx-auto mb-24">
+        <div className="text-center max-w-4xl mx-auto mb-24 relative">
+          <Sticker rotate={-12} className="absolute -top-2 left-4 lg:left-20 bg-sage/60 px-3 py-1 rounded-full label-mono">
+            ◦ inbox open ◦
+          </Sticker>
+          <Sticker rotate={10} delay={0.2} className="absolute top-8 right-4 lg:right-20 bg-blush/70 px-3 py-1 rounded-full label-mono">
+            ✿ replies in &lt;24h
+          </Sticker>
+
           <p className="label-mono mb-8">Chapter 04 — Say Hello</p>
           <h2 className="font-display font-normal text-6xl md:text-8xl lg:text-[10rem] text-ink leading-[0.9]">
             Let's make something{" "}
             <span className="italic-display text-clay">soft &amp; precise</span>{" "}
             together.
           </h2>
-          <a
-            href="mailto:hello@nehul.dev"
-            className="group inline-flex items-center gap-4 mt-12 px-8 py-4 rounded-full bg-ink text-cream label-mono hover:bg-clay transition-colors"
-          >
-            <span>Open a conversation</span>
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </a>
+          <Magnetic>
+            <a
+              href="mailto:hello@nehul.dev"
+              data-cursor="copy email"
+              className="group inline-flex items-center gap-4 mt-12 px-8 py-4 rounded-full bg-ink text-cream label-mono hover:bg-clay transition-colors"
+            >
+              <span>Open a conversation</span>
+              <motion.span
+                animate={{ x: [0, 6, 0] }}
+                transition={{ duration: 1.4, repeat: Infinity }}
+              >→</motion.span>
+            </a>
+          </Magnetic>
         </div>
 
         <div className="grid md:grid-cols-3 gap-px bg-border border border-border rounded-[1.5rem] overflow-hidden">
           {socials.map((s) => (
-            <a
+            <motion.a
               key={s.label}
               href={s.href}
               target="_blank"
               rel="noreferrer"
-              className="group bg-cream p-8 hover:bg-blush/30 transition-colors flex flex-col gap-3"
+              data-cursor={s.label.toLowerCase()}
+              whileHover={{ y: -2 }}
+              className="group bg-cream p-8 hover:bg-blush/30 transition-colors flex flex-col gap-3 relative"
             >
+              <span className="absolute top-6 right-6 font-mono text-sm text-clay opacity-50 group-hover:opacity-100 transition-opacity">
+                {s.emoji}
+              </span>
               <p className="label-mono">{s.label}</p>
               <div className="flex items-end justify-between">
                 <p className="font-display text-3xl text-ink group-hover:italic-display group-hover:text-clay transition-all">
@@ -48,7 +71,21 @@ export function Footer() {
                 </p>
                 <span className="text-ink-soft group-hover:text-clay group-hover:translate-x-1 transition-all">↗</span>
               </div>
-            </a>
+            </motion.a>
+          ))}
+        </div>
+
+        {/* tiny info strip */}
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 label-mono">
+          {[
+            { k: "tz", v: "IST · GMT+5:30" },
+            { k: "now", v: <LiveClock /> },
+            { k: "based", v: "Chandigarh, IN" },
+            { k: "status", v: "open to collabs" },
+          ].map((s, i) => (
+            <div key={i} className="rounded-xl border border-border bg-cream/60 px-3 py-2">
+              <span className="text-clay">{s.k}</span> · {s.v}
+            </div>
           ))}
         </div>
 
@@ -59,9 +96,7 @@ export function Footer() {
             </p>
             <p className="label-mono mt-2">designed &amp; built with care · 2025</p>
           </div>
-          <p className="label-mono">
-            ◦ a quiet portfolio ◦ updated this season ◦
-          </p>
+          <p className="label-mono">◦ a quiet portfolio ◦ updated this season ◦</p>
         </div>
       </div>
     </footer>
