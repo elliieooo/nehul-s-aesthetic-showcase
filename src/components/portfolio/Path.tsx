@@ -1,57 +1,66 @@
-const experience = [
+type Entry = {
+  period: string;
+  role: string;
+  italic?: string;
+  org: string;
+  body: string;
+  highlight?: boolean;
+};
+
+const experience: Entry[] = [
   {
-    period: "2025 — PRES",
-    role: "Stegano Researcher",
-    org: "Xaenithra · Cybersecurity Team",
-    body: "Leading technical initiatives in cryptography and data hiding. Specialized in steganographic engine architecture and vulnerability research within high-stakes CTF environments.",
-    accent: true,
+    period: "2025 — present",
+    role: "Stegano",
+    italic: "Researcher",
+    org: "Xaenithra · Cybersecurity",
+    body: "Leading research in cryptography and data-hiding — building steganographic engines and mapping quiet vulnerabilities for high-stakes CTF environments.",
+    highlight: true,
   },
   {
-    period: "ONGOING",
-    role: "CTF Player",
-    org: "Independent · Competitive Circuit",
-    body: "Vulnerability research, system mapping, and reverse engineering. Active participant in global capture-the-flag competitions and red-team simulations.",
+    period: "ongoing",
+    role: "CTF",
+    italic: "Player",
+    org: "Independent · Competitive",
+    body: "Reverse engineering, system mapping, and patient reconnaissance across global capture-the-flag events.",
   },
 ];
 
-const education = [
+const education: Entry[] = [
   {
     period: "2025 — 2029",
-    role: "BE Data Science",
+    role: "BE in",
+    italic: "Data Science",
     org: "Chandigarh University",
-    body: "Mathematical statistics, machine learning architectures, and computational logic.",
-    accent: true,
+    body: "Mathematical statistics, machine learning, and the calm side of computational logic.",
+    highlight: true,
   },
   {
-    period: "CERTIFIED",
-    role: "Programming Foundations",
+    period: "certified",
+    role: "Programming",
+    italic: "Foundations",
     org: "Duke University",
-    body: "JavaScript, HTML, CSS — formal grounding in web fundamentals.",
+    body: "JavaScript, HTML, CSS — formal grounding in the web's quiet language.",
   },
 ];
 
-function Entry({ item }: { item: typeof experience[number] }) {
+function EntryRow({ item }: { item: Entry }) {
   return (
-    <div className="grid md:grid-cols-4 gap-4 items-start">
-      <span className="font-mono text-ink-muted text-xs uppercase tracking-[0.2em] pt-1">
-        {item.period}
-      </span>
-      <div
-        className={`md:col-span-3 border-l pl-8 pb-4 ${
-          item.accent ? "border-ember/40" : "border-border"
-        }`}
-      >
-        <h4 className="text-2xl font-display text-ink uppercase tracking-tight">
-          {item.role}
+    <div className="grid md:grid-cols-12 gap-6 items-start py-10 border-t border-border first:border-t-0">
+      <div className="md:col-span-3">
+        <p className="label-mono">{item.period}</p>
+        {item.highlight && (
+          <span className="inline-block mt-3 text-xs px-3 py-1 rounded-full bg-blush/50 text-ink">
+            current
+          </span>
+        )}
+      </div>
+      <div className="md:col-span-9">
+        <h4 className="font-display text-3xl md:text-4xl text-ink leading-[1.05]">
+          {item.role}{" "}
+          {item.italic && <span className="italic-display text-clay">{item.italic}</span>}
         </h4>
-        <p
-          className={`font-mono text-xs mt-1 uppercase tracking-tight ${
-            item.accent ? "text-ember" : "text-ink-muted"
-          }`}
-        >
-          {item.org}
-        </p>
-        <p className="text-ink-muted mt-4 leading-relaxed">{item.body}</p>
+        <p className="label-mono mt-2">{item.org}</p>
+        <p className="mt-4 text-ink-soft leading-relaxed max-w-2xl">{item.body}</p>
       </div>
     </div>
   );
@@ -59,22 +68,28 @@ function Entry({ item }: { item: typeof experience[number] }) {
 
 export function Path() {
   return (
-    <section id="path" className="relative px-6 lg:px-24 py-32 border-t border-border">
-      <div className="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-20">
-        <div>
-          <p className="font-mono text-ember text-xs mb-12 tracking-[0.3em] uppercase">
-            // Professional_Path
-          </p>
-          <div className="space-y-14">
-            {experience.map((e) => <Entry key={e.role} item={e} />)}
-          </div>
+    <section id="path" className="relative px-6 lg:px-16 py-32 lg:py-40 bg-sand/40">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="mb-20 max-w-3xl">
+          <p className="label-mono mb-6">Chapter 03 — Journal</p>
+          <h2 className="font-display font-normal text-5xl md:text-7xl text-ink leading-[0.95]">
+            A short ledger of <span className="italic-display text-clay">where I've been</span>{" "}
+            & what I'm learning.
+          </h2>
         </div>
-        <div>
-          <p className="font-mono text-ember text-xs mb-12 tracking-[0.3em] uppercase">
-            // Academic_Record
-          </p>
-          <div className="space-y-14">
-            {education.map((e) => <Entry key={e.role} item={e} />)}
+
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          <div>
+            <p className="label-mono mb-8">— Practice</p>
+            <div>
+              {experience.map((e) => <EntryRow key={e.role} item={e} />)}
+            </div>
+          </div>
+          <div>
+            <p className="label-mono mb-8">— Study</p>
+            <div>
+              {education.map((e) => <EntryRow key={e.role} item={e} />)}
+            </div>
           </div>
         </div>
       </div>
