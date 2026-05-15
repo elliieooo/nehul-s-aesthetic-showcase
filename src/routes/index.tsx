@@ -5,6 +5,8 @@ import { About } from "@/components/portfolio/About";
 import { Projects } from "@/components/portfolio/Projects";
 import { Path } from "@/components/portfolio/Path";
 import { Footer } from "@/components/portfolio/Footer";
+import { SoftCursor } from "@/components/portfolio/interactive/SoftCursor";
+import { ScrollProgress } from "@/components/portfolio/interactive/ScrollProgress";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,6 +32,8 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="relative bg-background text-foreground font-body scanline">
+      <SoftCursor />
+      <ScrollProgress />
       <Nav />
       <Hero />
       <About />
