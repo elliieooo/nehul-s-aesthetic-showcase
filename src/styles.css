@@ -95,8 +95,9 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse 90% 60% at 50% -10%, color-mix(in oklab, var(--blush) 28%, transparent), transparent 70%),
-      radial-gradient(ellipse 70% 50% at 100% 100%, color-mix(in oklab, var(--sage) 18%, transparent), transparent 70%);
+      radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in oklab, var(--sage) 22%, transparent), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, color-mix(in oklab, var(--clay) 14%, transparent), transparent 70%),
+      radial-gradient(ellipse 50% 35% at 0% 60%, color-mix(in oklab, var(--blush) 12%, transparent), transparent 70%);
   }
   ::selection {
     background: color-mix(in oklab, var(--clay) 22%, transparent);
