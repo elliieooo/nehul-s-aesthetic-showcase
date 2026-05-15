@@ -1,6 +1,6 @@
 import ellieImg from "@/assets/ellie-portrait.jpg";
 import mothImg from "@/assets/sticker-moth.jpg";
-import comicImg from "@/assets/sticker-comic.jpg";
+
 import stegano from "@/assets/project-stegano-soft.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
