@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Reveal } from "./interactive/Reveal";
-import { Sticker } from "./interactive/Sticker";
+
 
 type Entry = {
   period: string; role: string; italic?: string; org: string; body: string; highlight?: boolean;

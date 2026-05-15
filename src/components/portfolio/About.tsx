@@ -1,6 +1,6 @@
 import aboutImg from "@/assets/about-soft.jpg";
 import stegano from "@/assets/project-stegano-soft.jpg";
-import chat from "@/assets/project-chat-soft.jpg";
+
 import weather from "@/assets/project-weather-soft.jpg";
 import { motion } from "framer-motion";
 import { Sticker } from "./interactive/Sticker";

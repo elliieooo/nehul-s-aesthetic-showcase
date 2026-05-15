@@ -7,7 +7,7 @@ import recon from "@/assets/project-recon-soft.jpg";
 import { motion } from "framer-motion";
 import { TiltCard } from "./interactive/TiltCard";
 import { Reveal } from "./interactive/Reveal";
-import { Sticker } from "./interactive/Sticker";
+
 
 type Project = {
   no: string; tag: string; title: string; italic?: string; body: string;
