@@ -66,10 +66,7 @@ export function Path() {
   return (
     <section id="path" className="relative px-6 lg:px-16 py-32 lg:py-40 bg-sand/40 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
-        <div className="mb-20 max-w-3xl relative">
-          <Sticker rotate={6} className="absolute -top-6 right-0 bg-sage/50 px-3 py-1 rounded-full label-mono">
-            ◦ now writing ch. 03 ◦
-          </Sticker>
+        <div className="mb-20 max-w-3xl">
           <Reveal>
             <p className="label-mono mb-6">Chapter 03 — Journal</p>
             <h2 className="font-display font-normal text-5xl md:text-7xl text-ink leading-[0.95]">
@@ -81,11 +78,11 @@ export function Path() {
 
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           <div>
-            <p className="label-mono mb-8">— Practice 🪶</p>
+            <p className="label-mono mb-8">— Practice</p>
             {experience.map((e, i) => <EntryRow key={e.role} item={e} idx={i} />)}
           </div>
           <div>
-            <p className="label-mono mb-8">— Study 📓</p>
+            <p className="label-mono mb-8">— Study</p>
             {education.map((e, i) => <EntryRow key={e.role} item={e} idx={i} />)}
           </div>
         </div>
