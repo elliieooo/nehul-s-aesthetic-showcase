@@ -14,23 +14,6 @@ import { SmoothScroll } from "@/components/portfolio/interactive/SmoothScroll";
 import { SectionReveal } from "@/components/portfolio/interactive/SectionReveal";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Nehul Thakur — Ellie · Steganography & Data Science" },
-      {
-        name: "description",
-        content:
-          "Portfolio of Nehul Thakur (Ellie) — steganography researcher with Xaenithra, CTF player, data science student. Quiet code, loud curiosity.",
-      },
-      { property: "og:title", content: "Nehul Thakur — Look for the Light" },
-      {
-        property: "og:description",
-        content:
-          "An Ellie-themed dossier of steganography research, predictive ML, CTFs, and field notes.",
-      },
-      { property: "og:type", content: "website" },
-    ],
-  }),
   component: Index,
 });
 
