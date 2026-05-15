@@ -1,27 +1,30 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import type { ReactNode, MouseEvent } from "react";
+import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 
-export function Magnetic({
-  children,
-  strength = 0.35,
-  className = "",
-}: { children: ReactNode; strength?: number; className?: string }) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 200, damping: 15 });
-  const sy = useSpring(y, { stiffness: 200, damping: 15 });
+export function Magnetic({ children, intensity = 0.5 }: { children: React.ReactNode; intensity?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const handleMove = (e: MouseEvent<HTMLDivElement>) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    x.set((e.clientX - (r.left + r.width / 2)) * strength);
-    y.set((e.clientY - (r.top + r.height / 2)) * strength);
+  const handleMouse = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const { clientX, clientY } = e;
+    const { height, width, left, top } = ref.current.getBoundingClientRect();
+    const middleX = clientX - (left + width / 2);
+    const middleY = clientY - (top + height / 2);
+    setPosition({ x: middleX * intensity, y: middleY * intensity });
   };
+
+  const reset = () => setPosition({ x: 0, y: 0 });
+
+  const { x, y } = position;
+
   return (
     <motion.div
-      onMouseMove={handleMove}
-      onMouseLeave={() => { x.set(0); y.set(0); }}
-      style={{ x: sx, y: sy }}
-      className={`inline-block ${className}`}
+      ref={ref}
+      onMouseMove={handleMouse}
+      onMouseLeave={reset}
+      animate={{ x, y }}
+      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
     >
       {children}
     </motion.div>

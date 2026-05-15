@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Magnetic } from "./interactive/Magnetic";
 
 const links = [
   { l: "About", h: "#about" },
@@ -40,15 +41,17 @@ export function Nav() {
         </a>
         <div className="hidden md:flex gap-8 label-mono items-center">
           {links.map((l) => (
-            <a
-              key={l.l}
-              href={l.h}
-              data-cursor={l.l.toLowerCase()}
-              className="relative hover:text-clay transition-colors group"
-            >
-              {l.l}
-              <span className="absolute left-0 -bottom-1 h-px w-0 bg-clay transition-all group-hover:w-full" />
-            </a>
+            <Magnetic key={l.l} intensity={0.2}>
+              <a
+                key={l.l}
+                href={l.h}
+                data-cursor={l.l.toLowerCase()}
+                className="relative hover:text-clay transition-colors group px-2 py-1"
+              >
+                {l.l}
+                <span className="absolute left-0 -bottom-1 h-px w-0 bg-clay transition-all group-hover:w-full" />
+              </a>
+            </Magnetic>
           ))}
         </div>
       </div>

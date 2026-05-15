@@ -10,6 +10,8 @@ import { Journal } from "@/components/portfolio/Journal";
 import { SoftCursor } from "@/components/portfolio/interactive/SoftCursor";
 import { ScrollProgress } from "@/components/portfolio/interactive/ScrollProgress";
 import { Fireflies } from "@/components/portfolio/interactive/Fireflies";
+import { SmoothScroll } from "@/components/portfolio/interactive/SmoothScroll";
+import { SectionReveal } from "@/components/portfolio/interactive/SectionReveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -35,16 +37,29 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main className="relative bg-background text-foreground font-body scanline">
+      <SmoothScroll />
       <Fireflies />
       <SoftCursor />
       <ScrollProgress />
       <Nav />
-      <Hero />
-      <About />
-      <Projects />
-      <Xaenithra />
-      <Journal />
-      <Path />
+      <SectionReveal>
+        <Hero />
+      </SectionReveal>
+      <SectionReveal>
+        <About />
+      </SectionReveal>
+      <SectionReveal>
+        <Projects />
+      </SectionReveal>
+      <SectionReveal>
+        <Xaenithra />
+      </SectionReveal>
+      <SectionReveal>
+        <Journal />
+      </SectionReveal>
+      <SectionReveal>
+        <Path />
+      </SectionReveal>
       <Footer />
     </main>
   );
