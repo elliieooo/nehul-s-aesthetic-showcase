@@ -22,13 +22,6 @@ export function Hero() {
       ref={ref}
       className="relative min-h-screen flex flex-col justify-center px-6 lg:px-16 pt-32 pb-24 overflow-hidden grain"
     >
-      {/* tiny corner labels */}
-      <div className="absolute top-24 left-6 lg:left-16 label-mono z-10">
-        ◦ portfolio · 04 · chandigarh, in
-      </div>
-      <div className="absolute top-24 right-6 lg:right-16 label-mono hidden md:block z-10">
-        “endure and survive” — j. miller
-      </div>
 
       <motion.div style={{ y: yTxt, opacity }} className="max-w-[1400px] mx-auto w-full grid lg:grid-cols-12 gap-12 items-center">
         {/* Left text */}

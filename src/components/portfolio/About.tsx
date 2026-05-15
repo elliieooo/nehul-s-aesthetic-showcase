@@ -39,17 +39,9 @@ export function About() {
               />
             </div>
 
-            {/* polaroid stickers */}
-            <Sticker rotate={-8} delay={0.2} className="absolute -top-6 -right-6 bg-cream p-2 pb-6 shadow-[var(--shadow-soft)] w-32">
+            <Sticker rotate={-4} delay={0.4} className="absolute -bottom-6 -right-6 bg-cream p-2 pb-5 shadow-[var(--shadow-soft)] w-28">
               <img src={stegano} alt="" className="w-full aspect-square object-cover" />
-              <p className="label-mono text-center mt-2 text-[8px]">stegano log</p>
-            </Sticker>
-            <Sticker rotate={6} delay={0.4} className="absolute -bottom-8 -left-6 bg-cream p-2 pb-6 shadow-[var(--shadow-soft)] w-28">
-              <img src={chat} alt="" className="w-full aspect-square object-cover" />
-              <p className="label-mono text-center mt-2 text-[8px]">design notes</p>
-            </Sticker>
-            <Sticker rotate={-4} delay={0.6} className="absolute top-1/2 -left-8 bg-blush/80 px-3 py-1 rounded-full label-mono">
-              ✿ ellie's desk
+              <p className="label-mono text-center mt-1.5 text-[8px]">stegano log</p>
             </Sticker>
 
             <p className="label-mono mt-6 text-center">
