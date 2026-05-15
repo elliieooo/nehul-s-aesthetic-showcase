@@ -68,19 +68,6 @@ export function Footer() {
           ))}
         </div>
 
-        {/* tiny info strip */}
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 label-mono">
-          {[
-            { k: "tz", v: "IST · GMT+5:30" },
-            { k: "based", v: "Chandigarh, IN" },
-            { k: "cell", v: "Xaenithra · stegano" },
-            { k: "status", v: "open to collabs" },
-          ].map((s, i) => (
-            <div key={i} className="rounded-xl border border-border bg-cream/60 px-3 py-2">
-              <span className="text-clay">{s.k}</span> · {s.v}
-            </div>
-          ))}
-        </div>
 
         <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div>
