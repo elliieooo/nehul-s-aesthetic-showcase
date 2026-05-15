@@ -72,16 +72,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Nehul Thakur — Data Science & Steganography" },
+      { name: "description", content: "Portfolio of Nehul Thakur (Ellie) — Data Science, steganography research, and CTF reconnaissance." },
+      { name: "author", content: "Nehul Thakur" },
+      { property: "og:title", content: "Nehul Thakur — Hiding in Plain Sight" },
+      { property: "og:description", content: "Premium portfolio — steganography, predictive ML, and CTF research." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500&family=Syne:wght@600;700;800&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,
