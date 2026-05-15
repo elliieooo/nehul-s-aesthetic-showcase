@@ -50,14 +50,14 @@
 :root {
   --radius: 1rem;
 
-  /* Soft editorial palette — cream, blush, clay, sage */
-  --cream:     oklch(0.972 0.012 80);
-  --sand:      oklch(0.945 0.018 75);
-  --ink:       oklch(0.26 0.025 35);
-  --ink-soft:  oklch(0.48 0.025 40);
-  --blush:     oklch(0.84 0.055 20);   /* dusty pink */
-  --clay:      oklch(0.62 0.11 35);    /* terracotta */
-  --sage:      oklch(0.74 0.035 140);  /* soft sage */
+  /* Ellie palette — parchment, moss, ember, ash. warm post-apocalyptic editorial */
+  --cream:     oklch(0.955 0.022 85);   /* parchment */
+  --sand:      oklch(0.915 0.028 80);   /* aged paper */
+  --ink:       oklch(0.22 0.03 150);    /* deep forest charcoal */
+  --ink-soft:  oklch(0.42 0.04 145);    /* moss shadow */
+  --blush:     oklch(0.78 0.08 35);     /* dusty rose / firefly glow */
+  --clay:      oklch(0.52 0.16 28);     /* ember red — Ellie blood-red accent */
+  --sage:      oklch(0.50 0.07 150);    /* deep moss green */
 
   --background: var(--cream);
   --foreground: var(--ink);
