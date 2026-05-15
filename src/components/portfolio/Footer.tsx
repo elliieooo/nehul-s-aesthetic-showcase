@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Magnetic } from "./interactive/Magnetic";
 import { Sticker } from "./interactive/Sticker";
-import { LiveClock } from "./interactive/LiveBadge";
 
 const socials = [
   { label: "LinkedIn", handle: "/in/nehulthakur", href: "https://linkedin.com/in/nehulthakur", emoji: "in" },
@@ -79,8 +78,8 @@ export function Footer() {
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 label-mono">
           {[
             { k: "tz", v: "IST · GMT+5:30" },
-            { k: "now", v: <LiveClock /> },
             { k: "based", v: "Chandigarh, IN" },
+            { k: "cell", v: "Xaenithra · stegano" },
             { k: "status", v: "open to collabs" },
           ].map((s, i) => (
             <div key={i} className="rounded-xl border border-border bg-cream/60 px-3 py-2">
