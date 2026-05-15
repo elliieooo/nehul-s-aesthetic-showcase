@@ -5,7 +5,8 @@ const links = [
   { l: "About", h: "#about" },
   { l: "Work", h: "#work" },
   { l: "Xaenithra", h: "#xaenithra" },
-  { l: "Journal", h: "#path" },
+  { l: "Journal", h: "#journal" },
+  { l: "Path", h: "#path" },
   { l: "Say Hello", h: "#contact" },
 ];
 
